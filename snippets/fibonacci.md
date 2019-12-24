@@ -1,28 +1,24 @@
 ---
 title: fibonacci
-tags: array,beginner
+tags: math,beginner
 ---
-(Non-recursive)
 
 Generates an array, containing the Fibonacci sequence, up until the nth term.
 
-Starting with 0 and 1, use `append!` to add the sum of the last two numbers of the array to the end of the sequence, until the length of the array reaches n. If n is less or equal to 0, return an array containing 0.
+Create an empty array, initializing the first two values (`0` and `1`).
+Loop until the `length()` of the sequence is equal to `n`, using `append!` to add the sum of the last two values to the sequence.
 
 ```jl
-function fibonacci(x)
-    if x <= 0
-        return [0]
-    end
-    seq = [0, 1]
-    while length(seq)<=x
-        next = seq[length(seq)] + seq[(length(seq)) - 1]
-        append!(seq, next)
-    end
-    return seq
-end
-        
+function fibonacci(n)
+  seq = [0, 1]
+  while length(seq) < n
+    next = seq[length(seq)] + seq[(length(seq)) - 1]
+    append!(seq, next)
+  end
+  return seq
+end 
 ```
 
 ```jl
-fibonacci(4) # [0, 1, 1, 2, 3]
+fibonacci(6) # [0, 1, 1, 2, 3, 5]
 ```
