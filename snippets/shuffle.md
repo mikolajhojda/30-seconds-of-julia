@@ -18,8 +18,7 @@ function shuffle(arr)
     x -= 1
   end
   return a
-end
-        
+end    
 ```
 
 ```jl
