@@ -1,11 +1,11 @@
 ---
 title: geometric_mean
-tags: math,statistics,intermediate
+tags: math,intermediate
 ---
 
 The snippet calculates the geometric mean of two or more numbers.
 
-Use `prod()` to get the product of the `args`, then take its n-th root where `n` is the number of arguments passed. The number of arguments passed is calculated using `length()`
+Use `prod()` to get the product of the `args`, then take its n-th root where `n` is the number of arguments passed, calculated using `length()`.
 
 ```jl
 function geometric_mean(args...)
