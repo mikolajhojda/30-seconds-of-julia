@@ -3,9 +3,9 @@ title: head
 tags: array,beginner
 ---
 
-Returns the head of a list.
+Returns the head of an array.
 
-Use `arr[0]` to return the first element of the passed list.
+Use `arr[0]` to return the first element of the passed array.
 
 ```jl
 function head(arr)
