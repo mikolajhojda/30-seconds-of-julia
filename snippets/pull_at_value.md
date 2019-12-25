@@ -1,5 +1,5 @@
 ---
-title: pullAtValue
+title: pull_at_value
 tags: array,advanced
 ---
 Mutates the original array to filter out the values specified. Returns the removed elements.
@@ -7,7 +7,7 @@ Mutates the original array to filter out the values specified. Returns the remov
 Use `filter!()` to pull out the values that are not needed. Use `push!()` to re-populate a new array with only the values pulled.
 
 ```jl
-function pullAtValue(arr, pullArr)
+function pull_at_value(arr, pullArr)
   removed=String[]
   for i in pullArr
     filter!(x -> x != i, arr)
@@ -19,5 +19,5 @@ end
 
 ```jl
 myArray = ["a", "b", "c", "d"]
-pulled = pullAtValue(myArray, ["b", "d"])  #myArray=["a", "c"]; pulled=["b", "d"]
+pulled = pull_at_value(myArray, ["b", "d"])  #myArray=["a", "c"]; pulled=["b", "d"]
 ```
