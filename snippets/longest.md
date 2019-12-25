@@ -3,9 +3,10 @@ title: longest
 tags: array,string,intermediate
 ---
 
-Returns the longest String/Array of args.
+Returns the longest element in args.
 
-Use `length.()` to get the length of each element in `args`, get maximum length using `maximum()`, then use `findfirst()` to get the longest items index. Then, access args at that index to return the longest item in `args`
+Use `length.()` to get the length of each element in `args`, get maximum length using `maximum()`.
+Use `findfirst()` to get the longest item's index and return it from `args`.
 
 ```jl
 function longest(args...)
