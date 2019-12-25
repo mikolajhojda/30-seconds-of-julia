@@ -1,11 +1,12 @@
 ---
 title: lcm
-tags: math,list,recursion,advanced
+tags: math,array,beginner
 ---
 
 Returns the least common multiple of two or more numbers.
 
-Use the greatest common divisor (GCD) formula and the fact that `lcm(x,y) = x * y / gcd(x,y)` to determine the least common multiple. The GCD formula uses recursion.
+Use `gcd()` to get the greatest common divisor and the fact that `lcm(x,y) = x * y / gcd(x,y)` to determine the least common multiple. 
+Use `reduce()` to apply the `lcm_` formula to each pair of numbers and get the result.
 
 ```jl
 function lcm(nums...)
