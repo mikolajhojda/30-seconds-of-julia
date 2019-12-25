@@ -1,11 +1,12 @@
 ---
 title: root_mean_square
-tags: array,statistics,intermediate
+tags: math,array,intermediate
 ---
 
-Calculates the root mean square of arguments.
+Calculates the root mean square of the given arguments.
 
-Get the mean of the square of the arguments using `abs2.()` and `length()`. Then, return the square root of this value.
+Use `abs2.()` and `length()` to get the mean of the square of `args`. 
+Use `sqrt()` to get the square root of this value.
 
 ```jl
 function root_mean_square(args...)
