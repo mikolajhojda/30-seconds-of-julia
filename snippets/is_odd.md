@@ -3,9 +3,10 @@ title: is_odd
 tags: math,beginner
 ---
 
-Returns True if the given number is odd, False otherwise.
+Returns `true` if the given number is odd, `false` otherwise.
 
-Checks whether a number is odd or even using the modulo (%) operator. Returns True if the number is odd, False if the number is even.
+Checks whether a number is odd or even using the modulo (`%`) operator. 
+Returns `true` if the number is odd, `false` if the number is even.
 
 ```jl
 function is_odd(num)
