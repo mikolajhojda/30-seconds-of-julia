@@ -1,12 +1,12 @@
 ---
 title: digitize
-tags: math,array,beginner
+tags: math,beginner
 ---
 
 Converts a number to an array of digits.
 
-Use `split()` to split string based on a common seperator. 
-Use `parse.()` to convert the type of an array (eg, Int32 to String).
+Use `string(n)` to convert the number to a string, `split()` to convert to a character array.
+Use `parse.()` to convert each element in the array to an `Int32`.
 
 ```jl
 function digitize(n)
@@ -16,5 +16,4 @@ end
 
 ```jl
 digitize(123) # [1, 2, 3]
-digitize(78910) # [7, 8, 9, 1, 0]
 ```
