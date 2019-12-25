@@ -1,0 +1,645 @@
+{
+  "data": [
+    {
+      "id": "all_equal",
+      "title": "all_equal",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "all_equal.md",
+        "text": "Checks if all the elements in an array are equal.\n\nUse `Set(arr)` to create a new set of unique values. \nCompare the `length()` of the set to `1` to check if all the values are equal.\n\n",
+        "codeBlocks": {
+          "code": "function all_equal(arr)\n  return length(Set(arr)) <= 1\nend",
+          "example": "all_equal([1, 2, 3, 4, 5, 6]) # False\nall_equal([1, 1, 1, 1]) # True"
+        },
+        "tags": [
+          "array",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "35651d1c36d9b1ce6287e092abedfc3eaa9da0877ea29bed867dc1793fcf061f",
+        "firstSeen": "1576852811",
+        "lastUpdated": "1576855880",
+        "updateCount": 6,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "average",
+      "title": "average",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "average.md",
+        "text": "Returns the average of two or more numbers.\n\nUse `sum()` to sum all of the `args` provided, divide by `length(args)`.\n\n",
+        "codeBlocks": {
+          "code": "function average(args...)\n  return sum(args) / length(args)\nend",
+          "example": "average(1, 2, 3)   # 2.0\naverage(4,5,6,7,8) # 6.0"
+        },
+        "tags": [
+          "math",
+          "array",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "8b7983ce333c6caf922c92ca65350fca16cb58e865066ce3215f1c8b71eb076d",
+        "firstSeen": "1576845610",
+        "lastUpdated": "1576855714",
+        "updateCount": 5,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "bifurcate",
+      "title": "bifurcate",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "bifurcate.md",
+        "text": "Splits values into two groups. \nIf an element in `filter` is `true`, the corresponding element in the collection belongs to the first group; otherwise, it belongs to the second group.\n\nUse `findall()` with `filter` to get array indices that correspond to `true`.\nUse those indices in a list comprehension to build the first group. \nSimilarly, use `findall()` to get array indices that correspond to `false` and build the second group.\n\n",
+        "codeBlocks": {
+          "code": "function bifurcate(array, filter)\n  return [[array[i] for i in findall(x -> x == true, filter)], [array[i] for i in findall(x -> x == false, filter)]]\nend",
+          "example": "bifurcate([\"beep\", \"boop\", \"foo\", \"bar\"], [true, true, false, true]) # [ ['beep', 'boop', 'bar'], ['foo'] ]"
+        },
+        "tags": [
+          "array",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "86d08d82db6ab0ccaeb99a685eeef2439a081cb53a7c1bf7a474c39dec400b4a",
+        "firstSeen": "1577109446",
+        "lastUpdated": "1577183863",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "bifurcate_by",
+      "title": "bifurcate_by",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "bifurcate_by.md",
+        "text": "Splits values into two groups according to a function, which specifies which group an element in the input list belongs to. \nIf the function returns `true`, the element belongs to the first group; otherwise, it belongs to the second group.\n\nUse list comprehension to build both the `true` returning groups and the `false` returning groups.\n\n",
+        "codeBlocks": {
+          "code": "function bifurcate_by(array, func)\n  return [[x for x in array if func(x)], [x for x in array if !func(x)]]\nend",
+          "example": "bifurcate_by([\"foo\", \"blob\", \"bar\", \"thing\", \"abcd\"], x -> length(x) == 4) # [ [\"blob\", \"abcd\"], [\"foo\", \"bar\", \"thing\"] ]"
+        },
+        "tags": [
+          "array",
+          "function",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "da8b72f01981f9e7ad91b80c647256cbbb5ff8a24220a19e4a6d4ee5b436e66d",
+        "firstSeen": "1577109446",
+        "lastUpdated": "1577183910",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "camelize",
+      "title": "camelize",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "camelize.md",
+        "text": "Converts a string into camelcase. \n\nUse `replace()` with a regular expression to remove the `'` and `` ` `` characters from the string.\nUse `split()` with a regular expression to convert the given string to an array of words.\nUse `map()` and `uppercasefirst()` to capitalize the first letter of each word.\nFinally, use `join()` to combine the words and `lowercasefirst()` to convert the first letter of the string to lowercase.\n\n",
+        "codeBlocks": {
+          "code": "function camelize(str)\n  return lowercasefirst(join(map(uppercasefirst,split(replace(str,r\"['`]\" => \"\"),r\"[a-z]\\K(?=[A-Z][a-z])|\\W|_\"))))\nend",
+          "example": "camelize(\"Coding_is_awesome\") # codingIsAwesome\ncamelize(\"some-mixed_string with spaces_underscores-and-hyphens\") # someMixedStringWithSpacesUnderscoresAndHyphens"
+        },
+        "tags": [
+          "string",
+          "regexp",
+          "advanced"
+        ]
+      },
+      "meta": {
+        "hash": "8f2535235624467fc167952902196af993223147d4a7d2abb6f29482ad729a26",
+        "firstSeen": "1577181464",
+        "lastUpdated": "1577181464",
+        "updateCount": 2,
+        "authorCount": 2
+      }
+    },
+    {
+      "id": "capitalize",
+      "title": "capitalize",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "capitalize.md",
+        "text": "Capitalizes the first letter of a string.\n\nUse `uppercasefirst()` to capitalize the first letter, combine with `lowercase()` if `lower_rest` is `true` to convert the rest to lowercase.\nOmit the second argument, `lower_rest`, to use a default value of `false`.\n\n",
+        "codeBlocks": {
+          "code": "function capitalize(s, lower_rest = false)\n  return lower_rest == true ? uppercasefirst(lowercase(s)) : uppercasefirst(s)\nend",
+          "example": "capitalize(\"fooBar\") # \"FooBar\"\ncapitalize(\"fooBar\", true) # \"Foobar\""
+        },
+        "tags": [
+          "string",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "b665b394e26bc89d2b4d85730e4be6304c4a00b8c14581de1a3497d80f1e0b84",
+        "firstSeen": "1576895573",
+        "lastUpdated": "1577010939",
+        "updateCount": 4,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "capitalize_every_word",
+      "title": "capitalize_every_word",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "capitalize_every_word.md",
+        "text": "Capitalizes the first letter of every word in a string.\n\nUse `titlecase()` to capitalizethe  first letter of each word in the string.\n\n",
+        "codeBlocks": {
+          "code": "function capitalize_every_word(s)\n  return titlecase(s)\nend",
+          "example": "capitalize_every_word(\"hello world!\") # \"Hello World!\""
+        },
+        "tags": [
+          "string",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "a221de54f2e7104994c3d3b5df1df5abf700e0c0bdc57b6003ac547120d4ee7d",
+        "firstSeen": "1576895804",
+        "lastUpdated": "1576944130",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "digitize",
+      "title": "digitize",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "digitize.md",
+        "text": "Converts a number to an array of digits.\n\nUse `string(n)` to convert the number to a string, `split()` to convert to a character array.\nUse `parse.()` to convert each element in the array to an `Int32`.\n\n",
+        "codeBlocks": {
+          "code": "function digitize(n)\n  return parse.(Int32, split(string(n), \"\"))\nend",
+          "example": "digitize(123) # [1, 2, 3]"
+        },
+        "tags": [
+          "math",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "3c21f01f776d7e7d98cb327bc0bfac4d2aaae1969e52deef565dc009c23f9d66",
+        "firstSeen": "1577192464",
+        "lastUpdated": "1577272657",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "fibonacci",
+      "title": "fibonacci",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "fibonacci.md",
+        "text": "Generates an array, containing the Fibonacci sequence, up until the nth term.\n\nCreate an empty array, initializing the first two values (`0` and `1`).\nLoop until the `length()` of the sequence is equal to `n`, using `append!` to add the sum of the last two values to the sequence.\n\n",
+        "codeBlocks": {
+          "code": "function fibonacci(n)\n  seq = [0, 1]\n  while length(seq) < n\n    next = seq[length(seq)] + seq[(length(seq)) - 1]\n    append!(seq, next)\n  end\n  return seq\nend",
+          "example": "fibonacci(6) # [0, 1, 1, 2, 3, 5]"
+        },
+        "tags": [
+          "math",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "1ddb770418522ea64efc722a2fd244d3e525f68800ea44dc1010fbe54b748d99",
+        "firstSeen": "1577161984",
+        "lastUpdated": "1577181920",
+        "updateCount": 4,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "frequency",
+      "title": "frequency",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "frequency.md",
+        "text": "Calculates the frequency of an element in an array.\n\nUse `count()` with an appropriate predicate function to count the number of elements in `arr` that are equal to `el`.\n\n",
+        "codeBlocks": {
+          "code": "function frequency(arr, el)\n  return count(x -> x == el, arr)\nend",
+          "example": "frequency([1, 1, 1], 1) # 3\nfrequency([1, 2, 3, 4], 5) # 0"
+        },
+        "tags": [
+          "array",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "ab1eefe2f2a94a74de09d79706a45cb75f362b474a3d860f5cbc07c9e4c3c8d2",
+        "firstSeen": "1577036719",
+        "lastUpdated": "1577091353",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "geometric_mean",
+      "title": "geometric_mean",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "geometric_mean.md",
+        "text": "The snippet calculates the geometric mean of two or more numbers.\n\nUse `prod()` to get the product of the `args`, then take its n-th root where `n` is the number of arguments passed, calculated using `length()`.\n\n",
+        "codeBlocks": {
+          "code": "function geometric_mean(args...)\n  return prod(args) ^ (1 / length(args))\nend",
+          "example": "geometric_mean(8, 27, 64) # 24"
+        },
+        "tags": [
+          "math",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "95c94c17582ff677db77edc64ebe0991215695d029d9b6c1184084aca69478e5",
+        "firstSeen": "1577109446",
+        "lastUpdated": "1577183952",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "harmonic_mean",
+      "title": "harmonic_mean",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "harmonic_mean.md",
+        "text": "The snippet calculates the harmonic mean of two or more numbers.\n\nUse `inv.()` to get the inverse of each argument, add them using `sum()`, then divide the sum by the number of arguments passed, calculated using `length()`.\nFinally use `inv()` to invert the result again and get the harmonic mean.\n\n",
+        "codeBlocks": {
+          "code": "function harmonic_mean(args...)\n  return inv(sum(inv.(args))/length(args))\nend",
+          "example": "harmonic_mean(0.5, 2) # 0.8"
+        },
+        "tags": [
+          "math",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "0ba1d0051f69c8d886dd674ebaa8d5fa389f02e60dfc41461df7da03f75b3fbf",
+        "firstSeen": "1577109446",
+        "lastUpdated": "1577184032",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "has_duplicates",
+      "title": "has_duplicates",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "has_duplicates.md",
+        "text": "Checks if an array has duplicate values.\n\nUse `Set(arr)` to create list of  distinct values, then compare its `length()` to the one of the original array.\n\n",
+        "codeBlocks": {
+          "code": "function has_duplicates(arr)\n  return length(Set(arr)) != length(arr)\nend",
+          "example": "has_duplicates([1,2,3,4]) # false\nhas_duplicates([1,1,2,3]) # true"
+        },
+        "tags": [
+          "array",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "1fc5d102ca5e83a88bf751dd7cd6c3f9c87af6fc2bccca41d2b6120bd43ecc9c",
+        "firstSeen": "1577082669",
+        "lastUpdated": "1577091466",
+        "updateCount": 4,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "head",
+      "title": "head",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "head.md",
+        "text": "Returns the head of an array.\n\nUse `arr[0]` to return the first element of the passed array.\n\n",
+        "codeBlocks": {
+          "code": "function head(arr)\n  return arr[0]\nend",
+          "example": "all_equal([1, 2, 3]) # 1"
+        },
+        "tags": [
+          "array",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "f16a5120646d7f291ed71b7f456d644f6a52f8c80b1045a55eb21c601e42cdfc",
+        "firstSeen": "1577192584",
+        "lastUpdated": "1577196446",
+        "updateCount": 3,
+        "authorCount": 2
+      }
+    },
+    {
+      "id": "intersection_by",
+      "title": "intersection_by",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "intersection_by.md",
+        "text": "Finds the intersection of two arrays `a` and `b` after applying a function, `func`, to every element in the two arrays.\n\nUse `func.()` on both arrays to get the function-processed array.\nUse `intersect()` on the returned function-processed arrays.\n\n",
+        "codeBlocks": {
+          "code": "function intersection_by(a, b, func)\n  return intersect(func.(a), func.(b))\nend",
+          "example": "intersection_by([1, 2, 3, 4, 5], [0, 1, 2, 3], x -> x + 1) # [2, 3, 4]"
+        },
+        "tags": [
+          "array",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "8b6bf0331b8aebe98340cce4a8b1b3a02d84912d4eb4e6947d59572217ca114e",
+        "firstSeen": "1577204095",
+        "lastUpdated": "1577272897",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "is_anagram",
+      "title": "is_anagram",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "is_anagram.md",
+        "text": "Checks if a string is an anagram of another string.\n\nUse `lowercase()`, `collect()`, `sort()` and `join()` to convert each string to its sorted, lowercase version.\nCompare the results and return `true` if they are equal, `false` otherwise.\n\n",
+        "codeBlocks": {
+          "code": "function is_anagram(firstString, secondString)\n  sortedFirstString = join(sort(collect(lowercase(firstString))))\n  sortedSecondString = join(sort(collect(lowercase(secondString)))) \n  return sortedFirstString == sortedSecondString\nend",
+          "example": "is_anagram(\"Anagram\", \"Garaman\")  # true"
+        },
+        "tags": [
+          "string",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "190ef4d27ca94976b14124cf6896705a54df6d7c7127983a534a804a532576d5",
+        "firstSeen": "1576968648",
+        "lastUpdated": "1577091195",
+        "updateCount": 7,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "is_even",
+      "title": "is_even",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "is_even.md",
+        "text": "Returns `true` if the given number is even, `false` otherwise.\n\nChecks whether a number is odd or even using the modulo (`%`) operator. \nReturns `true` if the number is even, `false` if the number is odd.\n\n",
+        "codeBlocks": {
+          "code": "function is_even(num)\n  return num % 2 == 0\nend",
+          "example": "is_even(4) # true\nis_even(5) # false"
+        },
+        "tags": [
+          "math",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "2427b0a572b82090e6cdd58681872812c393a102b0404642652d0e4b5ced1793",
+        "firstSeen": "1577192787",
+        "lastUpdated": "1577272713",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "is_odd",
+      "title": "is_odd",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "is_odd.md",
+        "text": "Returns `true` if the given number is odd, `false` otherwise.\n\nChecks whether a number is odd or even using the modulo (`%`) operator. \nReturns `true` if the number is odd, `false` if the number is even.\n\n",
+        "codeBlocks": {
+          "code": "function is_odd(num)\n  return num % 2 == 1\nend",
+          "example": "is_odd(4) # false\nis_odd(5) # true"
+        },
+        "tags": [
+          "math",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "179dc868fc253b7a375cd384b47d42d66b6299880a549d214381379c7f9104b3",
+        "firstSeen": "1577192787",
+        "lastUpdated": "1577272757",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "longest",
+      "title": "longest",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "longest.md",
+        "text": "Returns the longest element in args.\n\nUse `length.()` to get the length of each element in `args`, get maximum length using `maximum()`.\nUse `findfirst()` to get the longest item's index and return it from `args`.\n\n",
+        "codeBlocks": {
+          "code": "function longest(args...)\n  return args[findfirst(x -> length(x) == maximum(length.(args)), args)]\nend",
+          "example": "longest(\"foo\", \"bar\", \"thing\", [1, 2, 3, 4, 5, 6]) # [1, 2, 3, 4, 5, 6]"
+        },
+        "tags": [
+          "array",
+          "string",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "94694296a210caf34c09ec3776115a1ddb5ea02441747ee02dff14ec37fc9e76",
+        "firstSeen": "1577204095",
+        "lastUpdated": "1577272962",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "luhn",
+      "title": "luhn",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "luhn.md",
+        "text": "Implementation of the [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers, etc.\n\nDefine a `digit_sum()` method to get the sum of the digits of a number, using `sum()` and `digits()`.\nConvert the given number to a string, store the check digit, `chk`, using `string(num[end])`.\nUse slicing, `parse()` and `digit_sum()` on each digit to implement the Luhn Algorithm and produce `parta` and `partb`.\nFinally, return `true` if the sum of `parta`, `partb` and `chk` is divisible by `10`, `false` otherwise. \n\n",
+        "codeBlocks": {
+          "code": "function digit_sum(number)\n  return sum(digits(number))\nend\n\nfunction luhn(number)\n  num = \"$number\"\n  chk = string(num[end])\n  parta = digit_sum(parse(Int, reverse(num)[3:2:end]))\n  partb = sum(digit_sum.(2 * digits(parse(Int, reverse(num)[2:2:end]))))\n  return((parta+partb+chk) % 10 == 0 ? true : false)\nend",
+          "example": "luhn(79927398713) # true\nluhn(79927398714) # false"
+        },
+        "tags": [
+          "math",
+          "utility",
+          "advanced"
+        ]
+      },
+      "meta": {
+        "hash": "795cfef0e137ecdb7e3f91c6b105627b3b78d07d9aed8b772c5cd082f2a7a445",
+        "firstSeen": "1577212269",
+        "lastUpdated": "1577274135",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "palindrome",
+      "title": "palindrome",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "palindrome.md",
+        "text": "Returns `true` if the given string is a palindrome, `false` otherwise.\n\nUse `reverse()` to reverse the string, `lowercase()` to convert both the original and the reverse to lowercase.\nReturn the result of comparing the two strings.\n\n",
+        "codeBlocks": {
+          "code": "function palindrome(str)\n  return lowercase(str) == reverse(lowercase(str))\nend",
+          "example": "palindrome(\"racecar\") # true\npalindrome(\"mycat\") # false"
+        },
+        "tags": [
+          "string",
+          "beginner"
+        ]
+      },
+      "meta": {
+        "hash": "b92b246a0e5ee8d500a1f85da41a9dd6c59c721b45fb33c4b7d7923348808811",
+        "firstSeen": "1576946018\n1576941963",
+        "lastUpdated": "1577091151",
+        "updateCount": 7,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "pretty_bytes",
+      "title": "pretty_bytes",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "pretty_bytes.md",
+        "text": "Converts a number in bytes to a human-readable string.\n\nUse an array of units to be accessed based on the exponent. \nUse `round()` to truncate the number to a certain number of digits. \nReturn the prettified string by building it up, taking into account the supplied options and whether it is negative or not. \nOmit the second keyword argument, `precision`, to use a default precision of `3` digits. \nOmit the third keyword argument, `add_space`, to add space between the number and unit by default.\n\n",
+        "codeBlocks": {
+          "code": "function pretty_bytes(bytes; precision = 3, add_space = true)\n  units = ['B', \"KB\", \"MB\", \"GB\", \"TB\", \"PB\", \"EB\", \"ZB\", \"YB\"]\n  if abs(bytes) < 1\n    return string(bytes) * (add_space ? ' ' : \"\") * units[1]\n  end\n  expo = Int64(min(floor(log10(bytes < 0 ? -bytes : bytes) / 3) + 1, length(units)))\n  n = round((bytes < 0 ? -bytes : bytes) / (1000 ^ (expo - 1)), sigdigits = precision)\n  return (bytes < 0 ? '-' : \"\") * string(n) * (add_space ? ' ' : \"\") * units[expo]\nend",
+          "example": "pretty_bytes(1000) # 1.0 KB\npretty_bytes(-27145424323.5821, precision = 5) # -27.145 GB\npretty_bytes(123456789, precision = 3, add_space = false) # 123.0MB"
+        },
+        "tags": [
+          "utility",
+          "string",
+          "math",
+          "advanced"
+        ]
+      },
+      "meta": {
+        "hash": "f545b0cd88e4a6cc4d1535d73a319b28f76bc0f7959afcfd7012fbb2c05c7cfc",
+        "firstSeen": "1577262660",
+        "lastUpdated": "1577262660",
+        "updateCount": 2,
+        "authorCount": 2
+      }
+    },
+    {
+      "id": "pull_at_index",
+      "title": "pull_at_index",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "pull_at_index.md",
+        "text": "Mutates the original array to filter out the values at the specified indexes. \nReturns the removed elements.\n\nUse `filter!()` to pull out the values that are not needed. \nUse `push!()` to re-populate a new array with only the values pulled.\n\n",
+        "codeBlocks": {
+          "code": "function pull_at_index(arr, pullArr)\n  removed = String[]\n  counter = 0\n  for i in pullArr\n    value = arr[i - counter]\n    filter!(x -> x != value, arr)\n    push!(removed, value)\n    counter = counter + 1\n  end\n  return removed\nend",
+          "example": "myArray = [\"a\", \"b\", \"c\", \"d\"]\npulled = pull_at_index(myArray, [1,3]) #myArray=[\"b\", \"d\"]; pulled=[\"a\", \"c\"]"
+        },
+        "tags": [
+          "array",
+          "advanced"
+        ]
+      },
+      "meta": {
+        "hash": "b3bc7aa25353af0268d242ab55df57d4e30b187a2aa7066d285c9ca2a31b7abc",
+        "firstSeen": "1577245345",
+        "lastUpdated": "1577275474",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "pull_at_value",
+      "title": "pull_at_value",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "pull_at_value.md",
+        "text": "Mutates the original array to filter out the values specified. \nReturns the removed elements.\n\nUse `filter!()` to pull out the values that are not needed. \nUse `push!()` to re-populate a new array with only the values pulled.\n\n",
+        "codeBlocks": {
+          "code": "function pull_at_value(arr, pullArr)\n  removed = String[]\n  for i in pullArr\n    filter!(x -> x != i, arr)\n    push!(removed, i)\n  end\n  return removed\nend",
+          "example": "myArray = [\"a\", \"b\", \"c\", \"d\"]\npulled = pull_at_value(myArray, [\"b\", \"d\"])  #myArray=[\"a\", \"c\"]; pulled=[\"b\", \"d\"]"
+        },
+        "tags": [
+          "array",
+          "advanced"
+        ]
+      },
+      "meta": {
+        "hash": "dc3394f91394e23e8b06d0a222d9de772b8fafa1a9df9cb804fae21c293deea7",
+        "firstSeen": "1577245345",
+        "lastUpdated": "1577275462",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "root_mean_square",
+      "title": "root_mean_square",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "root_mean_square.md",
+        "text": "Calculates the root mean square of the given arguments.\n\nUse `abs2.()` and `length()` to get the mean of the square of `args`. \nUse `sqrt()` to get the square root of this value.\n\n",
+        "codeBlocks": {
+          "code": "function root_mean_square(args...)\n  return sqrt(sum(abs2.(args))/length(args))\nend",
+          "example": "root_mean_square(1, 3, 5) # approximately 3.42"
+        },
+        "tags": [
+          "math",
+          "array",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "249503ca370689881821ee6d024052fae6f693abc326bad2bfcb376e4c07d649",
+        "firstSeen": "1577204095",
+        "lastUpdated": "1577273053",
+        "updateCount": 3,
+        "authorCount": 3
+      }
+    },
+    {
+      "id": "shuffle",
+      "title": "shuffle",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "shuffle.md",
+        "text": "Randomizes the order of the values of an array, returning a new array.\n\nUse `copy()` to create a new array from `arr`.\nUse the [Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Fisher_and_Yates'_original_method) to reorder the elements of the array.\n\n",
+        "codeBlocks": {
+          "code": "function shuffle(arr)\n  a = copy(arr)\n  x = length(a)\n  while (x != 0)\n    i = rand(1:x)\n    a[x], a[i] = a[i], a[x]\n    x -= 1\n  end\n  return a\nend",
+          "example": "shuffle([1,2,3, 4]) # [3, 1, 2, 4]"
+        },
+        "tags": [
+          "array",
+          "random",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "b49dd1c9d6032005d423d889344d5eb8b634c7ec7ffc5893a75a8994d1caf79e",
+        "firstSeen": "1577161984",
+        "lastUpdated": "1577181944",
+        "updateCount": 4,
+        "authorCount": 3
+      }
+    }
+  ],
+  "meta": {
+    "specification": "http://jsonapi.org/format/",
+    "type": "snippetArray",
+    "language": {
+      "short": "jl",
+      "long": "Julia"
+    }
+  }
+}
