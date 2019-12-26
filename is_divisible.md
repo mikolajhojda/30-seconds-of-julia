@@ -3,9 +3,9 @@ title: is_divisible
 tags: math,beginner
 ---
 
-Checks if the first numeric argument is divisible by the second one.
+Checks if the a number is divisible by another number.
 
-Use the modulo function (`mod()`) to check if the remainder is equal to `0`.
+Use `mod()` to check if the remainder of dividing `dividend` by `divisor` is equal to `0`.
 
 ```jl
 function is_divisible(dividend, divisor):
