@@ -3,7 +3,7 @@ title: chunk
 tags: array,intermediate
 ---
 
-Chunks a list into smaller lists of a specified size.
+Chunks an array into smaller arrays of a specified size.
 
 Using array comprehension, `min()` and  `length()`
 
