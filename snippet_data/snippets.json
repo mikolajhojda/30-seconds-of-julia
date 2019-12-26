@@ -172,6 +172,30 @@
       }
     },
     {
+      "id": "chunk",
+      "title": "chunk",
+      "type": "snippet",
+      "attributes": {
+        "fileName": "chunk.md",
+        "text": "Chunks an array into smaller arrays of the specified size.\n\nUse array comprehension, `min()` and `length()` to create an array of arrays of length `n` from the given array, `arr`.\n\n",
+        "codeBlocks": {
+          "code": "function chunk(arr, n)\n  return [arr[i:min(i + n - 1, end)] for i in 1:n:length(arr)]\nend",
+          "example": "chunk([1,2,3,4,5],2) # [[1, 2], [3, 4], 5]\nchunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 4) # [[1, 2, 3, 4], [5, 6, 7, 8], [9]]"
+        },
+        "tags": [
+          "array",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "6cac8d7ed94576fdbfda2cc14633fa18dab058ca8268fe4843901c351dab57f1",
+        "firstSeen": "1577297839",
+        "lastUpdated": "1577380383",
+        "updateCount": 5,
+        "authorCount": 4
+      }
+    },
+    {
       "id": "digitize",
       "title": "digitize",
       "type": "snippet",

@@ -109,6 +109,21 @@
       }
     },
     {
+      "id": "chunk",
+      "type": "snippetListing",
+      "title": "chunk",
+      "attributes": {
+        "text": "Chunks an array into smaller arrays of the specified size.\n\nUse array comprehension, `min()` and `length()` to create an array of arrays of length `n` from the given array, `arr`.\n\n",
+        "tags": [
+          "array",
+          "intermediate"
+        ]
+      },
+      "meta": {
+        "hash": "6cac8d7ed94576fdbfda2cc14633fa18dab058ca8268fe4843901c351dab57f1"
+      }
+    },
+    {
       "id": "digitize",
       "type": "snippetListing",
       "title": "digitize",
