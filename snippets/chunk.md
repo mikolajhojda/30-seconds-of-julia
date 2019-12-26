@@ -1,6 +1,6 @@
 ---
 title: chunk
-tags: list,intermediate
+tags: array,intermediate
 ---
 
 Chunks a list into smaller lists of a specified size.
